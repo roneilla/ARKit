@@ -17,6 +17,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.autoenablesDefaultLighting = true
+        
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -24,7 +26,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
+        
+        let modelScene = SCNScene(named: "sphere3.dae")
+        
+        guard let modelNode = modelScene?.rootNode.childNode(withName: "Sphere", recursively: true) else {
+            fatalError("model not found")
+        }
+        
+        modelNode.position = SCNVector3(0,0,-0.5)
+        
+        scene.rootNode.addChildNode(modelNode)
         
         // Set the scene to the view
         sceneView.scene = scene

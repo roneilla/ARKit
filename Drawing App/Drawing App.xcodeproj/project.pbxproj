@@ -13,6 +13,7 @@
 		F7CE18B62409C2D60058C6FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CE18B42409C2D60058C6FF /* Main.storyboard */; };
 		F7CE18B82409C2D80058C6FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7CE18B72409C2D80058C6FF /* Assets.xcassets */; };
 		F7CE18BB2409C2D80058C6FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CE18B92409C2D80058C6FF /* LaunchScreen.storyboard */; };
+		F7CE18CB2409CC1B0058C6FF /* sphere3.dae in Resources */ = {isa = PBXBuildFile; fileRef = F7CE18CA2409CC1B0058C6FF /* sphere3.dae */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F7CE18B72409C2D80058C6FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7CE18BA2409C2D80058C6FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7CE18BC2409C2D80058C6FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7CE18CA2409CC1B0058C6FF /* sphere3.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = sphere3.dae; path = ../../sphere3.dae; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				F7CE18AE2409C2D60058C6FF /* AppDelegate.swift */,
 				F7CE18B02409C2D60058C6FF /* art.scnassets */,
 				F7CE18B22409C2D60058C6FF /* ViewController.swift */,
+				F7CE18CA2409CC1B0058C6FF /* sphere3.dae */,
 				F7CE18B42409C2D60058C6FF /* Main.storyboard */,
 				F7CE18B72409C2D80058C6FF /* Assets.xcassets */,
 				F7CE18B92409C2D80058C6FF /* LaunchScreen.storyboard */,
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7CE18B12409C2D60058C6FF /* art.scnassets in Resources */,
+				F7CE18CB2409CC1B0058C6FF /* sphere3.dae in Resources */,
 				F7CE18BB2409C2D80058C6FF /* LaunchScreen.storyboard in Resources */,
 				F7CE18B82409C2D80058C6FF /* Assets.xcassets in Resources */,
 				F7CE18B62409C2D60058C6FF /* Main.storyboard in Resources */,
