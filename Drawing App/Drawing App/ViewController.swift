@@ -70,6 +70,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 */
     
+    func view(_ view: ARSCNView, didAdd node: SCNNode, for anchor: ARAnchor){
+       let newModelNode = SCNNode()
+    }
+    
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
