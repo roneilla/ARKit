@@ -24,22 +24,58 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        sceneView.allowsCameraControl = true
         
         // Create a new scene
-        let scene = SCNScene()
+       // let scene = SCNScene()
         
-        let modelScene = SCNScene(named: "JordansRoom_test6.dae")
+        let scene = SCNScene(named: "JordansRoom_test6.dae")!
         
-        guard let modelNode = modelScene?.rootNode.childNode(withName: "Cylinder", recursively: true) else {
-            fatalError("model not found")
-            }
-
-        modelNode.position = SCNVector3(-5,0,-5)
-        
-        scene.rootNode.addChildNode(modelNode)
-        
-        // Set the scene to the view
         sceneView.scene = scene
+
+        let wait:SCNAction = SCNAction.wait(duration: 3)
+        
+        let runAfter:SCNAction = SCNAction.run { _ in
+            self.addSceneContent()
+        }
+        
+        let seq:SCNAction = SCNAction.sequence( [wait, runAfter] )
+        sceneView.scene.rootNode.runAction(seq)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer){
+//        guard let sceneView = sender.view as? ARSCNView else {
+//            return
+//        }
+        
+        let touchLocation = sender.location(in: sceneView)
+        
+        let hitTestResult = sceneView.hitTest(touchLocation, options: [:])
+        
+        if !hitTestResult.isEmpty {
+            for hitResult in hitTestResult {
+               if (hitResult.node.name == "Room") {
+                print(hitResult.node.name)
+                }
+            }
+        } else {
+            
+        }
+        
+    }
+    
+    func addSceneContent(){
+        
+          guard let modelNode = self.sceneView.scene.rootNode.childNode(withName: "Room", recursively: true) else { fatalError("model not found") }
+                 
+        modelNode.position = SCNVector3(0,0,-0.5)
+                
+        self.sceneView.scene.rootNode.addChildNode(modelNode)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +83,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints, SCNDebugOptions.showPhysicsShapes]
 
         // Run the view's session
         sceneView.session.run(configuration)
